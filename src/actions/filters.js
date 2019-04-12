@@ -31,3 +31,10 @@ export const setEndDate = endDate => ({
   type: "SET_END_DATE",
   endDate
 });
+export const sortByLowToHigh = () => ({
+  type: "SORT_BY_LOW_TO_HIGH"
+});
+
+export const sortByHighToLow = () => ({
+  type: "SORT_BY_HIGH_TO_LOW"
+});

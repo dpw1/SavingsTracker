@@ -14,10 +14,20 @@ import "react-dates/lib/css/_datepicker.css";
 const store = configureStore();
 
 const coffee = store.dispatch(
-  addExpense({ description: "coffee", amount: 2000, createdAt: 300 })
+  addExpense({
+    description: "coffee",
+    amount: 2000,
+    createdAt: 300,
+    type: "charity"
+  })
 );
 const rent = store.dispatch(
-  addExpense({ description: "rent", amount: 55000, createdAt: 200 })
+  addExpense({
+    description: "rent",
+    amount: 55000,
+    createdAt: 200,
+    type: "miscellaneous"
+  })
 );
 const waterBill = store.dispatch(
   addExpense({ description: "water bill", amount: 30000, createdAt: 8000 })

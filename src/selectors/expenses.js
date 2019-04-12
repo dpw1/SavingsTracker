@@ -2,7 +2,7 @@ import moment from "moment";
 
 export const getVisibleExpenses = (
   expenses,
-  { text, sortBy, startDate, endDate }
+  { text, sortBy, sortByLowToHigh, startDate, endDate }
 ) => {
   return expenses
     .filter(expense => {
@@ -20,10 +20,15 @@ export const getVisibleExpenses = (
       return startDateMatch && endDateMatch && textMatch;
     })
     .sort((a, b) => {
-      if (sortBy === "date") return a.createdAt < b.createdAt ? 1 : -1;
-      else if (sortBy === "amount") return a.amount > b.amount ? 1 : -1;
-      else if (sortBy === "type") return a.type > b.type ? 1 : -1;
-      else if (sortBy === "alphabetical")
-        return a.description > b.description ? 1 : -1;
+      const lowToHigh = sortByLowToHigh === "low-to-high" ? 1 : -1;
+      if (sortBy === "date") {
+        return a.createdAt < b.createdAt ? lowToHigh * 1 : lowToHigh * -1;
+      } else if (sortBy === "amount") {
+        return a.amount > b.amount ? lowToHigh * 1 : lowToHigh * -1;
+      } else if (sortBy === "type") {
+        return a.type > b.type ? lowToHigh * 1 : lowToHigh * -1;
+      } else if (sortBy === "alphabetical") {
+        return a.description > b.description ? lowToHigh * 1 : lowToHigh * -1;
+      }
     });
 };

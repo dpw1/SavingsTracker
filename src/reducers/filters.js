@@ -3,6 +3,7 @@ import moment from "moment";
 const filtersReducerDefaultState = {
   text: "",
   sortBy: "date",
+  sortByLowToHigh: "low-to-high",
   startDate: undefined,
   endDate: undefined
 };
@@ -47,6 +48,16 @@ export default (state = filtersReducerDefaultState, action) => {
       return {
         ...state,
         endDate: action.endDate
+      };
+    case "SORT_BY_LOW_TO_HIGH":
+      return {
+        ...state,
+        sortByLowToHigh: "low-to-high"
+      };
+    case "SORT_BY_HIGH_TO_LOW":
+      return {
+        ...state,
+        sortByLowToHigh: "high-to-low"
       };
     default:
       return state;

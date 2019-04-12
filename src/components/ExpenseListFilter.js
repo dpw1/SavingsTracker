@@ -6,6 +6,9 @@ import {
   sortByAmount,
   sortByDate,
   sortByAlphabetical,
+  sortByType,
+  sortByLowToHigh,
+  sortByHighToLow,
   setStartDate,
   setEndDate
 } from "../actions/filters";
@@ -45,6 +48,8 @@ class ExpenseListFilter extends React.Component {
                 return this.props.dispatch(sortByAmount());
               case "alphabetical":
                 return this.props.dispatch(sortByAlphabetical());
+              case "type":
+                return this.props.dispatch(sortByType());
               default:
                 return "";
             }
@@ -53,7 +58,26 @@ class ExpenseListFilter extends React.Component {
           <option value="date">Date</option>
           <option value="amount">Amount</option>
           <option value="alphabetical">Alphabetical</option>
+          <option value="type">Type</option>
         </select>
+        <select
+          name=""
+          id=""
+          onChange={e => {
+            switch (e.target.value) {
+              case "low-to-high":
+                return this.props.dispatch(sortByLowToHigh());
+              case "high-to-low":
+                return this.props.dispatch(sortByHighToLow());
+              default:
+                return "";
+            }
+          }}
+        >
+          <option value="low-to-high">Low to high</option>
+          <option value="high-to-low">High to low</option>
+        </select>
+
         <DateRangePicker
           startDate={this.props.filters.startDate}
           endDate={this.props.filters.endDate}
