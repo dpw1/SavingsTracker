@@ -6,7 +6,7 @@ import configureStore from "./store/configureStore";
 import { addExpense } from "./actions/expenses";
 import { setFilterText, sortByAmount } from "./actions/filters";
 import { getVisibleExpenses } from "./selectors/expenses";
-
+import moment from "moment";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
@@ -23,7 +23,11 @@ const waterBill = store.dispatch(
   addExpense({ description: "water bill", amount: 30000, createdAt: 8000 })
 );
 const grocery = store.dispatch(
-  addExpense({ description: "grocery", amount: 7000, createdAt: 9000 })
+  addExpense({
+    description: "grocery",
+    amount: 7000,
+    createdAt: moment([2019, 3, 15])
+  })
 );
 
 const ant = store.dispatch(

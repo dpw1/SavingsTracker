@@ -8,7 +8,8 @@ const ExpenseListHeader = props => {
   return (
     <header className="expense-list__header">
       <h2>
-        You're viewing {props.expenses.length} expenses totalling&nbsp;
+        You're viewing {props.expenses.length}{" "}
+        {props.expenses.length === 1 ? "expense" : "expenses"} totalling&nbsp;
         {props.expenses.length >= 1
           ? formatPrice(
               props.expenses.map(each => each.amount).reduce((a, b) => a + b)
