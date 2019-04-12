@@ -9,6 +9,7 @@ import { getVisibleExpenses } from "./selectors/expenses";
 
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
+import "react-dates/lib/css/_datepicker.css";
 
 const store = configureStore();
 
@@ -29,7 +30,7 @@ const ant = store.dispatch(
   addExpense({ description: "ants", amount: 1000, createdAt: 2390000 })
 );
 
-store.dispatch(sortByAmount());
+// store.dispatch(sortByAmount());
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);

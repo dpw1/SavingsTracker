@@ -13,8 +13,6 @@ import {
 class ExpenseListFilter extends React.Component {
   constructor(props) {
     super(props);
-
-    // this.
   }
   state = {
     calendarFocused: null
@@ -48,7 +46,7 @@ class ExpenseListFilter extends React.Component {
               case "alphabetical":
                 return this.props.dispatch(sortByAlphabetical());
               default:
-                return "ok";
+                return "";
             }
           }}
         >

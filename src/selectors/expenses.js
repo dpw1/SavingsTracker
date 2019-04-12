@@ -22,6 +22,7 @@ export const getVisibleExpenses = (
     .sort((a, b) => {
       if (sortBy === "date") return a.createdAt < b.createdAt ? 1 : -1;
       else if (sortBy === "amount") return a.amount > b.amount ? 1 : -1;
+      else if (sortBy === "type") return a.type > b.type ? 1 : -1;
       else if (sortBy === "alphabetical")
         return a.description > b.description ? 1 : -1;
     });

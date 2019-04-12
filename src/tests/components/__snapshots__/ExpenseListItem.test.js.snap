@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render expense list item 1`] = `
+<div
+  className="expense-list__item"
+>
+  <Link
+    replace={false}
+    to="/edit/1"
+  >
+    <h2>
+      Gum
+    </h2>
+  </Link>
+  <span>
+    Price: 
+    $1.00
+  </span>
+  <p>
+    Created At: 
+    Thursday, January 1st 1970, 1:00:00 am
+  </p>
+  <p>
+    Type: 
+    charity
+  </p>
+</div>
+`;

@@ -2,13 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
-import "react-dates/lib/css/_datepicker.css";
 
 export default class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
     this.onAmountKeyDown = this.onAmountKeyDown.bind(this);
-    moment.locale("pt");
 
     this.state = {
       description: props.expense ? props.expense.description : "",
