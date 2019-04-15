@@ -1,6 +1,9 @@
 import numeral from "numeral";
 import moment from "moment";
+
 import { addExpense } from "../actions/expenses";
+import configureApp from "../config/configureApp";
+
 export const formatPrice = amount => numeral(amount / 100).format("$0,0.00");
 
 export const addTestExpenses = store => {

@@ -6,14 +6,15 @@ import configureStore from "./store/configureStore";
 import { startSetExpenses } from "./actions/expenses";
 import { getVisibleExpenses } from "./selectors/expenses";
 import { addTestExpenses } from "./utils/utils";
+import moment from "moment";
+import configureApp from "./config/configureApp";
 import "./firebase/firebase";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
 
 const store = configureStore();
-
-addTestExpenses(store);
+configureApp();
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
@@ -29,4 +30,3 @@ ReactDOM.render(<p>loading...</p>, document.querySelector("#app"));
 store.dispatch(startSetExpenses()).then(() => {
   ReactDOM.render(jsx, document.querySelector("#app"));
 });
-// ReactDOM.render(jsx, document.querySelector("#app"));
